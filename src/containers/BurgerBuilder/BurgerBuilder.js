@@ -10,19 +10,19 @@ class BurgerBuilder extends Component{
             "patty":0,
             "tofu":0
         },
-        ingredientPrice:{
-            "cheese":50,
-            "salad":30,
-            "patty":25,
-            "tofu":20
-        },
         totalPrice:0
+    }
+    ingredientPrices={
+        "cheese":50,
+        "salad":30,
+        "patty":25,
+        "tofu":20
     }
     addIngredientHandler=(type)=>{
         const updatedIngredients={...this.state.ingredients}
         updatedIngredients[type]=updatedIngredients[type]+1;
         let updatedPrice=this.state.totalPrice;
-        updatedPrice+=this.state.ingredientPrice[type];
+        updatedPrice+=this.ingredientPrices[type];
         this.setState({
             ingredients:updatedIngredients,
             totalPrice:updatedPrice
@@ -32,7 +32,7 @@ class BurgerBuilder extends Component{
         const updatedIngredients={...this.state.ingredients}
         updatedIngredients[type]=updatedIngredients[type]-1<0?0:updatedIngredients[type]-1;
         let updatedPrice=this.state.totalPrice;
-        updatedPrice-=this.state.ingredientPrice[type];
+        updatedPrice-=this.ingredientPrices[type];
         this.setState({
             ingredients:updatedIngredients,
             totalPrice:updatedPrice

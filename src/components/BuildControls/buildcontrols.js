@@ -10,7 +10,7 @@ const BuildControls=(props)=>{
     ]
     return (
     <div className={classes.BuildControls}>
-        {controls.map((ing,i)=>{
+        {controls.map((ing)=>{
            return <BuildControl 
            addIngredient={props.addIngredient}
            removeIngredient={props.removeIngredient} 
