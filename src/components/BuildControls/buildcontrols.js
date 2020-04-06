@@ -10,6 +10,7 @@ const BuildControls=(props)=>{
     ]
     return (
     <div className={classes.BuildControls}>
+        <p>Current Price : <strong>₹{props.price}</strong></p>
         {controls.map((ing)=>{
            return <BuildControl 
            disableLessButton={props.disableLessButton}
