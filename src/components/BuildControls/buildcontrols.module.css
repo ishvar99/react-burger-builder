@@ -1,0 +1,10 @@
+.BurgerControls{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: pink;
+}
