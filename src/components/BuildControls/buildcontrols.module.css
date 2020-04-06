@@ -1,10 +1,11 @@
-.BurgerControls{
-    width: 100%;
-    height: 300px;
+.BuildControls{
     display: flex;
-    margin: auto;
-    flex-direction: column;
+    margin: 0 250px 250px 250px;
+    /* width: 500px; */
+    flex-flow: column;
     justify-content: space-between;
     align-items: center;
-    background-color: pink;
+    background-color:#CF8F2E;
+    box-shadow: 0 2px 1px #ccc;
+    padding: 10px 0;
 }

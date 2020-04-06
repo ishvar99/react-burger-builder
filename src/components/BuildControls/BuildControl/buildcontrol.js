@@ -4,10 +4,10 @@ const BuildControl=(props)=>{
     return (
     <div className={classes.BuildControl}>
             <div>
-               <p>{props.label}</p> 
+               <p className={classes.Label}>{props.label}</p> 
             </div>
-            <button onClick={()=>props.clicked(props.label)}>More</button>
-            <button onClick={()=>props.clicked(props.label)}>Less</button>
+            <button className={classes.More} onClick={()=>props.addIngredient(props.type)}>More</button>
+            <button className={classes.Less} onClick={()=>props.removeIngredient(props.type)}>Less</button>
         </div>
     )
 }

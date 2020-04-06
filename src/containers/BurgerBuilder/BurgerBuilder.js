@@ -9,55 +9,43 @@ class BurgerBuilder extends Component{
             "salad":0,
             "patty":0,
             "tofu":0
-        }
+        },
+        ingredientPrice:{
+            "cheese":50,
+            "salad":30,
+            "patty":25,
+            "tofu":20
+        },
+        totalPrice:0
     }
-    onClickHandler=(type)=>{
-        if(type==='cheese'){
-            this.setState({
-                ingredients:{
-                    'cheese':this.state.ingredients['cheese']+1,
-                    'salad':this.state.ingredients['salad'],
-                    'patty':this.state.ingredients['patty'],
-                    'tofu':this.state.ingredients['tofu']
-                }
-            })
-        }
-        else if(type==='salad'){
-            this.setState({
-                ingredients:{
-                    'cheese':this.state.ingredients['cheese'],
-                    'salad':this.state.ingredients['salad']+1,
-                    'patty':this.state.ingredients['patty'],
-                    'tofu':this.state.ingredients['tofu']
-                }
-            })
-        }
-        else if(type==='patty'){
-            this.setState({
-                ingredients:{
-                    'cheese':this.state.ingredients['cheese'],
-                    'salad':this.state.ingredients['salad'],
-                    'patty':this.state.ingredients['patty']+1,
-                    'tofu':this.state.ingredients['tofu']
-                }
-            })
-        }
-        else if(type==='tofu'){
-            this.setState({
-                ingredients:{
-                    'cheese':this.state.ingredients['cheese'],
-                    'salad':this.state.ingredients['salad'],
-                    'patty':this.state.ingredients['patty'],
-                    'tofu':this.state.ingredients['tofu']+1
-                }
-            })
-        }
+    addIngredientHandler=(type)=>{
+        const updatedIngredients={...this.state.ingredients}
+        updatedIngredients[type]=updatedIngredients[type]+1;
+        let updatedPrice=this.state.totalPrice;
+        updatedPrice+=this.state.ingredientPrice[type];
+        this.setState({
+            ingredients:updatedIngredients,
+            totalPrice:updatedPrice
+        })
+    }
+    removeIngredientHandler=(type)=>{
+        const updatedIngredients={...this.state.ingredients}
+        updatedIngredients[type]=updatedIngredients[type]-1<0?0:updatedIngredients[type]-1;
+        let updatedPrice=this.state.totalPrice;
+        updatedPrice-=this.state.ingredientPrice[type];
+        this.setState({
+            ingredients:updatedIngredients,
+            totalPrice:updatedPrice
+        })
     }
     render(){
         return (
             <Aux>
                 <Burger ingredients={this.state.ingredients}/>
-                <BuildControls clicked={(type)=>this.onClickHandler(type)}/>
+                <BuildControls 
+                addIngredient={this.addIngredientHandler}
+                removeIngredient={this.removeIngredientHandler}
+                />
             </Aux>
         );
     }
