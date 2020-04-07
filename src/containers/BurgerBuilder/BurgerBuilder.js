@@ -4,6 +4,7 @@ import Burger from '../../components/Burger/burger';
 import BuildControls from '../../components/BuildControls/buildcontrols'
 import Modal from '../../components/UI/Modal/modal'
 import OrderSummary from '../../components/OrderSummary/ordersummary';
+import Backdrop from '../../components/UI/Backdrop/backdrop';
 class BurgerBuilder extends Component{
     state={
         ingredients:{
@@ -38,7 +39,11 @@ class BurgerBuilder extends Component{
             purchasing:true
         })
     }
-
+    purchaseCancleHandler=()=>{
+        this.setState({
+            purchasing:false
+        })
+    }
     addIngredientHandler=(type)=>{
         const updatedIngredients={...this.state.ingredients}
         updatedIngredients[type]=updatedIngredients[type]+1;
@@ -71,6 +76,7 @@ class BurgerBuilder extends Component{
         return (
             <Aux>
                 <Burger ingredients={this.state.ingredients}/>
+                <Backdrop clicked={this.purchaseCancleHandler} show={this.state.purchasing}/>
                 <Modal show={this.state.purchasing}>
                     <OrderSummary ingredients={this.state.ingredients}/>
                 </Modal>
