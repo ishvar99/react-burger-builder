@@ -1,5 +1,5 @@
 {
-  "homepage": "http://ishvar99.github.io/React-Burger-Builder",
+  "homepage": "http://ishvar99.github.io/react-burger-builder",
   "name": "react-burger-builder",
   "version": "0.1.0",
   "private": true,
@@ -14,7 +14,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
